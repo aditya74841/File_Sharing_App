@@ -1,7 +1,7 @@
 import File from "../models/file.js";
 import { uploadFileToDrive } from "../utils/googleDrive.js";
 import { google } from "googleapis";
-
+import drive from "../utils/googleDrive.js";
 export const uploadImage = async (req, res) => {
   try {
     const { fileId, link } = await uploadFileToDrive(req.file);
@@ -47,11 +47,11 @@ const extractFileIdFromUrl = (url) => {
   return match ? match[1] : null;
 };
 
-const auth = new google.auth.GoogleAuth({
-  keyFile: "service-account.json",
-  scopes: ["https://www.googleapis.com/auth/drive"],
-});
-const drive = google.drive({ version: "v3", auth });
+// const auth = new google.auth.GoogleAuth({
+//   keyFile: "service-account.json",
+//   scopes: ["https://www.googleapis.com/auth/drive"],
+// });
+// const drive = google.drive({ version: "v3", auth });
 
 export const downloadImage = async (req, res) => {
   try {
