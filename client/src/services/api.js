@@ -11,3 +11,13 @@ export const uploadFile = async (data) => {
         console.error('Error while calling the api', error.message);
     }
 }
+
+
+export const deleteFile = async (fileId) => {
+    try {
+         await axios.delete(`${API_URL}/delete-file/${fileId}`);
+        return 
+    } catch (error) {
+        console.error('Error while calling the api', error.message);
+    }
+}
