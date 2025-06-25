@@ -29,5 +29,7 @@ const startServer = async () => {
     process.exit(1); // optional: exit app if DB fails
   }
 };
-
+app.get("/", (req, res) => {
+  res.send("<h1>Server is running perfectly</h1>");
+});
 startServer();

@@ -1,4 +1,13 @@
-/node_modules
+# Dependencies
+node_modules/
+
+# Environment variables
 .env
-/service-account.json
-/temp-service-account.json
+
+# Google Cloud credentials
+service-account.json
+temp-service-account.json
+
+# Logs and temp files (optional)
+*.log
+*.tmp
