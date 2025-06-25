@@ -8,7 +8,7 @@ import DBConnection from "./database/db.js";
 import { errorMiddleware } from "./middleware/error.js";
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json()); // optional, but recommended
 
 const PORT = process.env.PORT || 8000;
