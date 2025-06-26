@@ -163,3 +163,26 @@ export const deleteFileFromGoogle = async (req, res) => {
     return res.status(500).json({ success: false, message: error.message });
   }
 };
+
+export const getFiles = async (req, res) => {
+  try {
+    const files = await File.find();
+
+    if (!files.length) {
+      return res
+        .status(200)
+        .json({ success: true, message: "No files found", files: [] });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Files fetched successfully",
+      files,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Failed to fetch files from Google Drive",
+    });
+  }
+};
